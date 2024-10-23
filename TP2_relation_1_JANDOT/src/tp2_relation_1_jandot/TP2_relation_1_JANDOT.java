@@ -23,15 +23,9 @@ public class TP2_relation_1_JANDOT {
         System.out.println("liste des voitures disponibles "+ uneClio  + 
         "\n" + uneAutreClio   + "\n" + une2008   + "\n" + uneMicra ) ; 
         
-        Bob.liste_voitures[0] = uneClio ; 
-        Bob.nbVoitures = 1 ; 
-        uneClio.Proprietaire = Bob ; 
-        
-        Bob.liste_voitures[1] = uneMicra;
-        Bob.nbVoitures = 2;
-        uneMicra.Proprietaire = Bob;
-        System.out.println("la premiere voiture de Bob est " + 
-        Bob.liste_voitures[0] ) ;
+        Bob.ajouter_voiture(uneClio);
+        Bob.ajouter_voiture(une2008);
+        System.out.println("voitures de Bob sont " + Bob.liste_voitures[0] + Bob.liste_voitures[1] );
         
     }
     

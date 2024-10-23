@@ -20,12 +20,20 @@ public class Personne {
         liste_voitures = new Voiture[3];
     }
     
-    public boolean ajouter_voiture( Voiture vaj) { 
+    public boolean ajouter_voiture(Voiture vaj) { 
         if (vaj.Proprietaire != null){
             return false;
         }
+        if (nbVoitures == 3){
+            return false;
+        }
+        else{
+            liste_voitures[nbVoitures] = vaj;
+            nbVoitures += 1;
+            vaj.Proprietaire = this;
+            return true;
+        }
         
-        return true;
     }
     
 
