@@ -18,7 +18,7 @@ public class Epee extends Arme{
 
     @Override
     public String toString() {
-        return "Epee{" + "indiceFinesse=" + indiceFinesse + '}';
+        return "Epee{nom=" + nom + " ; indiceFinesse=" + indiceFinesse + " ; niv=" + niv +'}';
     }
     
 }

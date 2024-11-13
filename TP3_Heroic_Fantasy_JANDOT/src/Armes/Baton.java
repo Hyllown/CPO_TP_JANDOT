@@ -18,7 +18,7 @@ public class Baton extends Arme {
 
     @Override
     public String toString() {
-        return "Baton{" + "age=" + age + '}';
+        return "Baton{nom=" + nom + " ; age=" + age + " ; niv=" + niv + '}';
     }
     
 }
