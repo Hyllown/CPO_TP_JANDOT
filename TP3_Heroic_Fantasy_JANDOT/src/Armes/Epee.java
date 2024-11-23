@@ -14,6 +14,8 @@ public class Epee extends Arme{
     public Epee(int indiceFinesse, String nom, int niv) {
         super(nom, niv);
         this.indiceFinesse = indiceFinesse;
+        this.nom = nom;
+        this.niv = niv;
     }
 
     @Override

@@ -40,6 +40,10 @@ public class TP3_Heroic_Fantasy_JANDOT {
         Gandalf.ajouter_Arme(Chene);
         Gandalf.ajouter_Arme(Charme);
         Gandalf.ajouter_Arme(Cimeterre);
+        
+        System.out.println(Gandalf.toString());
+        System.out.println(Conan.toString());
+
 
 
     }

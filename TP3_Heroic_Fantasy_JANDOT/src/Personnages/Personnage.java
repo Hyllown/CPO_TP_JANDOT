@@ -7,21 +7,35 @@ import Armes.Baton;
 import Armes.Arme;
 import Armes.Epee;
 import java.util.ArrayList;
+import tp3_heroic_fantasy_jandot.etreVivant;
 
 /**
  *
  * @author achil
  */
-public abstract class Personnage {
+public abstract class Personnage implements etreVivant{
     String nom;
     int PV;
     int nbPerso = 0;
     Arme Arme_en_Main = null;
     ArrayList<Arme> inventaire = new ArrayList<Arme>();
+    ArrayList<Personnage> ListPerso = new ArrayList<Personnage>();
 
-    public Personnage(String nom, int PV) {
+
+    public Personnage(String nom, int PV){
         this.nom = nom;
         this.PV = PV;
+        nbPerso++;
+        
+    }
+
+    public int getNbPerso() {
+        return nbPerso;
+    }
+    
+    @Override
+    public void finalize() {
+        nbPerso--;
     }
 
     public Arme getArme_en_Main() {
@@ -48,7 +62,7 @@ public abstract class Personnage {
         return "L'arme demandee n'a pas ete trouvee";
     }
     
-    public String Arme_Pref(){
+    public void Arme_Pref(){
         if (this instanceof Magicien){
             int nbPref=0;
             for (int i = 0; i < this.inventaire.size() ;i++){
@@ -57,7 +71,7 @@ public abstract class Personnage {
                     nbPref++;
                 }
             }
-            return nbPref + " Armes Preferée";
+            System.out.println(nbPref +" Armes Preferees");
         }
         else{
             int nbPref=0;
@@ -67,17 +81,36 @@ public abstract class Personnage {
                     nbPref++;
                 }
             }
-            return nbPref + " Armes Preferée";
+            System.out.println(nbPref +" Armes Preferees");
         }
     }
+    
+    @Override
+    public void seFatiguer(){
+        PV-=10;
+    }
+    
+    @Override
+    public boolean estVivant(){
+        return PV > 0;
+    }
+    
+    @Override    
+    public void estAttaque(int points){
+        PV-=points;
+    }
     /*
-    public String CaracAll(){
-        
+    public void Attaque(String neuil){
+        Personnage test =
+        if (this instanceof Magicien){
+            estAttaque(20);
+        }
     }
     */
     
+       
     @Override
     public String toString() {
-        return "Personnage{" + "nom=" + nom + ", PV=" + PV + ", Arme_en_Main=" + Arme_en_Main + ", inventaire=" + inventaire + '}';
+        return "Personnage {nom=" + nom + ", PV=" + PV + ", Arme_en_Main=" + Arme_en_Main + ", inventaire=" + inventaire + '}';
     }
 }
